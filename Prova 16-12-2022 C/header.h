@@ -1,0 +1,33 @@
+#ifndef _HEADER_H_
+#define _HEADER_H_
+
+#include <pthread.h>
+
+#define TIPO 1
+#define LETTORI 3
+
+#define FTOK_PATH "."
+#define FTOK_CHAR 'a'
+
+typedef struct {
+
+    // TODO: completare campi messaggio
+    long tipo;
+    int valore;
+    
+    } Messaggio;
+
+typedef struct {
+
+    // TODO: completare inserendo i campi necessari a gestire il problema dei lettori-scrittori (unico scrittore)
+    pthread_mutex_t mutex;
+    pthread_cond_t VAR_LETT;
+    pthread_cond_t VAR_SCRITT;
+
+    int valore;
+    int num_lett;
+    int num_scritt;
+
+    } MonitorLS;
+
+#endif
